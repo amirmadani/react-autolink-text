@@ -37,6 +37,6 @@
     "react-pure-render": "^1.0.2"
   },
   "peerDependencies": {
-    "react": "5.1.x"
+   
   }
 }
