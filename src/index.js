@@ -9,12 +9,12 @@ export default class AutoLinkText extends React.Component {
   render() {
     const text = this.props.text || '';
     return (
-      <span>{matchParser(text)::prepareElements(text)::truncate(this.props.maxLength)::keyElements()}</span>
+      <span>{matchParser(text)::prepareElements(text, this.props)::truncate(this.props.maxLength)::keyElements()}</span>
     );
   }
 }
 
-function prepareElements(text) {
+function prepareElements(text, props) {
   let elements = [];
   let lastIndex = 0;
 
@@ -22,9 +22,9 @@ function prepareElements(text) {
     if (match.position.start !== 0) {
       elements.push(<span>{text.slice(lastIndex, match.position.start)}</span>);
     }
-    elements.push(<a href={match.getAnchorHref()} target={this.props.target?this.props.target:'_blank'}>
-                      {(this.props.linkLength && match.getAnchorText().length > this.props.linkLength)?
-                          match.getAnchorText().substring(0,this.props.linkLength):match.getAnchorText()}
+    elements.push(<a href={match.getAnchorHref()} target={props.target?props.target:'_blank'}>
+                      {(props.linkLength && match.getAnchorText().length >props.linkLength)?
+                          match.getAnchorText().substring(0,props.linkLength):match.getAnchorText()}
                   </a>);
     lastIndex = match.position.end;
   });
