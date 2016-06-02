@@ -5,9 +5,9 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/OpenGov/react-autolink-text.git"
+    "url": "https://github.com/amirmadani/react-autolink-text.git"
   },
-  "bugs": "https://github.com/OpenGov/react-autolink-text/issues",
+  "bugs": "https://github.com/amirmadani/react-autolink-text/issues",
   "license": "MIT",
   "scripts": {
     "examples": "webpack-dev-server --config examples/webpack.config.js --content-base examples --inline",
@@ -37,6 +37,6 @@
     "react-pure-render": "^1.0.2"
   },
   "peerDependencies": {
-    "react": "0.14.x"
+    "react": "5.x.x"
   }
 }
