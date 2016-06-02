@@ -22,7 +22,10 @@ function prepareElements(text) {
     if (match.position.start !== 0) {
       elements.push(<span>{text.slice(lastIndex, match.position.start)}</span>);
     }
-    elements.push(<a href={match.getAnchorHref()}>{match.getAnchorText()}</a>);
+    elements.push(<a href={match.getAnchorHref()} target={this.props.target?this.props.target:'_blank'}>
+                      {(this.props.linkLength && match.getAnchorText().length > this.props.linkLength)?
+                          match.getAnchorText().substring(0,this.props.linkLength):match.getAnchorText()}
+                  </a>);
     lastIndex = match.position.end;
   });
 
